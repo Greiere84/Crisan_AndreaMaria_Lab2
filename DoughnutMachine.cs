@@ -8,7 +8,6 @@ namespace Crisan_AndreaMaria_Lab2
     class DoughnutMachine
     {
         private DoughnutType mFlavor;
-        
         public DoughnutType Flavor
         {
             get
@@ -20,18 +19,19 @@ namespace Crisan_AndreaMaria_Lab2
                 mFlavor = value;
             }
         }
-            private System.Collections.ArrayList mDoughnuts = new System.Collections.ArrayList();
-            public Doughnut this[int Index]
+        private System.Collections.ArrayList mDoughnuts = new System.Collections.ArrayList();
+        public Doughnut this[int Index]
+        {
+            get
             {
-                get
-                {
-                    return (Doughnut)mDoughnuts[Index];
-                }
-                set
-                {
-                    mDoughnuts[Index] = value;
-                }
+                return (Doughnut)mDoughnuts[Index];
+
             }
+            set
+            {
+                mDoughnuts[Index] = value;
+            }
+        }
         public delegate void DoughnutCompleteDelegate();
         public event DoughnutCompleteDelegate DoughnutComplete;
         System.Windows.Threading.DispatcherTimer doughnutTimer;
@@ -66,6 +66,7 @@ namespace Crisan_AndreaMaria_Lab2
         }
         public void MakeDoughnuts(DoughnutType dFlavor)
         {
+
             Flavor = dFlavor;
             switch (Flavor)
             {
@@ -77,6 +78,7 @@ namespace Crisan_AndreaMaria_Lab2
             }
             doughnutTimer.Start();
         }
+
     }
     public enum DoughnutType
     {
@@ -89,6 +91,7 @@ namespace Crisan_AndreaMaria_Lab2
     class Doughnut
     {
         private DoughnutType mFlavor;
+
         public DoughnutType Flavor
         {
             get
@@ -119,12 +122,13 @@ namespace Crisan_AndreaMaria_Lab2
             {
                 return mTimeOfCreation;
             }
+
         }
         public Doughnut(DoughnutType aFlavor) // constructor
         {
             mTimeOfCreation = DateTime.Now;
             mFlavor = aFlavor;
         }
-
     }
 }
+
