@@ -199,7 +199,11 @@ namespace Crisan_AndreaMaria_Lab2
         }
         private void btnRemoveItem_Click(object sender, RoutedEventArgs e)
         {
+            string subtotal = lstSale.SelectedItem.ToString();
+            string quantity = subtotal.Substring(0, subtotal.IndexOf(" "));
+            string price = subtotal.Substring(subtotal.IndexOf(":") + 1, subtotal.LastIndexOf(" ") - subtotal.IndexOf(":") - 1);
             lstSale.Items.Remove(lstSale.SelectedItem);
+            txtTotal.Text = (double.Parse(txtTotal.Text) - double.Parse(quantity) * double.Parse(price)).ToString();
         }
         private void btnCheckOut_Click(object sender, RoutedEventArgs e)
         {
